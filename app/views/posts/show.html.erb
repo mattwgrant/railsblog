@@ -1,0 +1,12 @@
+<%= @post.content %>
+
+<%= form_for @new_comm do |f| %>
+  <%= f.hidden_field :post_id, value: @post.id %>
+  <%= f.text_field :content, :placeholder => "Say something" %>
+  <%= f.submit %>
+<% end %>
+
+<h4>Comments</h4>
+<% @comments.each do |comment| %>
+  <%= comment.content %>
+<% end %>

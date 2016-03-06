@@ -1,1 +1,4 @@
-<%= @user.full_name %>
+
+
+<%= link_to("Post it?", controller: "posts", action: "new") %>
+<%= link_to("Delete Profile", user_path(@user.id), method: :destroy) %>

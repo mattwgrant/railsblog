@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
   
   def index
-    current_user = User.find_by_id(session[:current_user_id])
+    @users = User.all
   end
 
   def show
-    @user = User.find(params[:id])
+    @current_user = User.find_by_id(session[:current_user_id])
   end
 
   def new
@@ -18,9 +18,14 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+
+    redirect_to root_path
   end
 
 end

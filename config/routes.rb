@@ -4,7 +4,11 @@ Rails.application.routes.draw do
 
   root "sessions#new"
   post "login" => "sessions#create"
-  get "/posts" => "posts#new"
+  get "users" => "users#show"
+  get "posts" => "posts#new"
+  post "/posts/:id" => "posts#show"
+  post "comments" => "comments#create"
+  delete "/users/:id" => "users#destroy"
  
 
   resources :users
