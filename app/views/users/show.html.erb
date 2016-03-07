@@ -1,4 +1,13 @@
-
+Welcome, <%= @user.fname %>!
 
 <%= link_to("Post it?", controller: "posts", action: "new") %>
-<%= link_to("Delete Profile", user_path(@user.id), method: :destroy) %>
+<%= link_to "Delete Profile", user_path(@user.id), method: :destroy %>
+
+<%= form_for :post, :url "/posts" do |f| %>
+    <%= f.text_field :content, :placeholder => "Speak at me" %><br>
+    <%= f.submit :create %>
+<% end %>
+
+<!-- trying to get the comments to show on the user's page but it is not working -->
+<!-- this is causing errors on all user pages -->
+<!-- Besides the errors caused by these comments, it is not liking the "end" -->
